@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+
+namespace Ucu.Poo.Expert
+{
+    public class LibraryInventory
+    {
+        private Dictionary<string, string> bookLocations;
+
+        public LibraryInventory()
+        {
+            bookLocations = new Dictionary<string, string>();
+        }
+
+        public void ShelveBook(Book book, string sector, string shelve)
+        {
+            string location = $"{sector}-{shelve}";
+            if (!bookLocations.ContainsKey(book.Code))
+            {
+                bookLocations.Add(book.Code, location);
+            }
+            else
+            {
+                bookLocations[book.Code] = location;
+            }
+        }
+
+        public string GetBookLocation(string bookCode)
+        {
+            if (bookLocations.ContainsKey(bookCode))
+            {
+                return bookLocations[bookCode];
+            }
+            else
+            {
+                return "Book not found in inventory.";
+            }
+        }
+    }
+}
