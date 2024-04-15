@@ -1,0 +1,11 @@
+public class AppointmentValidator
+{
+    public bool ValidateAppointmentData(string name, string id, string phoneNumber, string appointmentPlace, string doctorName)
+    {
+        if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(id) || string.IsNullOrEmpty(phoneNumber) || string.IsNullOrEmpty(appointmentPlace) || string.IsNullOrEmpty(doctorName))
+        {
+            return false;
+        }
+        return true;
+    }
+}
